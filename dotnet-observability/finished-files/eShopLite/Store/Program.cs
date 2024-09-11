@@ -17,7 +17,11 @@ builder.Services.AddHttpClient<ProductService>(c =>
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Add logging
+// Add Appinsight
+builder.Services.AddApplicationInsightsTelemetry();
+
+// Register the JavaScriptSnippet service
+builder.Services.AddSingleton<Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet>();
 
 
 var app = builder.Build();
